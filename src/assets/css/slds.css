@@ -1,0 +1,30 @@
+.slds-dropdown__list{
+    padding: 0;
+}
+
+.slds-global-actions{
+    margin: 0;
+}
+
+.slds-grid{
+    margin: 0;
+    padding: 0;
+}
+
+.slds-context-bar__label-action{
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.slds-context-bar__label-action:hover{
+    text-decoration: underline;
+}
+
+.slds-dropdown__item > a{
+    text-decoration: none;
+    transition: all 0.2s;
+}
+
+.slds-dropdown__item > a:hover{
+    text-decoration: underline;
+}

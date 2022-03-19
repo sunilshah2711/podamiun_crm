@@ -1,0 +1,48 @@
+@import url(../css/bootstrap.css);
+@import url(../css/slds.css);
+
+body{
+    background: #B1C4DF;
+    min-height: 100vh;
+    max-height: 100%;
+    padding-bottom: 12px;
+}
+
+ul{
+    padding: 0;
+}
+
+a{
+    transition: all 0.5s;
+}
+
+a:hover{
+    color: #1b96ff;
+}
+
+.left-panel{
+    width: 25%;
+    min-height: 100vh;
+    max-height: 100%;
+    background: #F3F3F3;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 12px;
+    margin-bottom: 0;
+}
+
+.check-filter{
+    visibility: hidden;
+    transition: ease-in-out 0.3s;
+}
+
+.check-filter:hover{
+    color: #1b96ff;
+    text-decoration: underline;
+}
+
+.slds-checkbox__label:hover .check-filter{
+    visibility: visible;
+    cursor: pointer;
+
+}

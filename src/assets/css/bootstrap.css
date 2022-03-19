@@ -1,0 +1,48 @@
+.dropdown-menu{
+    padding: 0;
+    height: 0;
+    background: transparent;
+    border: none;
+}
+
+.btn-group > .btn, .btn-group-vertical > .btn{
+    padding: 0;
+    margin: 0;
+    width: auto;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.dropdown-item:hover, .dropdown-item:focus{
+    background: transparent;
+}
+
+.btn-group, .btn-group-vertical{
+    padding: 0;
+    margin: 0;
+    width: auto;
+}
+
+.dropdown-toggle{
+    display: flex;
+    align-items: center;
+    color: #181818;
+}
+
+.dropdown-toggle:hover{
+    color: #181818;
+}
+
+.dropdown-toggle::after{
+    display: none;
+}
+
+.btn-group > .btn, .btn-group-vertical > .btn:focus{
+    box-shadow: none;
+    color: #181818;
+}
+
+.btn-secondary{
+    border: none;
+}
