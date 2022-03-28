@@ -1,15 +1,17 @@
 import { createApp } from 'vue'
-import BootstrapVue3 from 'bootstrap-vue-3'
 
 import App from './App.vue'
 import router from './router'
 
-import './assets/css/bootstrap-main.css'
-import './assets/css/bootstrap-vue-3.css'
+
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { library } from "@fortawesome/fontawesome-svg-core"
+import { faPhone } from "@fortawesome/free-solid-svg-icons"
+import { faGoogle } from "@fortawesome/free-brands-svg-icons"
+
 import './assets/css/global.css'
 
 const app = createApp(App)
-
+library.add(faPhone, faGoogle)
 app.use(router)
-app.use(BootstrapVue3)
-app.mount('#app')
+app.component("font-awesome-icon", FontAwesomeIcon).mount('#app')

@@ -37,50 +37,94 @@
 
 <template>
     <div class="left-panel">
-        <div class="slds-tabs_default">
-            <ul class="slds-tabs_default__nav" role="tablist">
-                <li class="slds-tabs_default__item slds-is-active" title="Item One" role="presentation">
-                    <a class="slds-tabs_default__link" href="#" role="tab" tabindex="0" aria-selected="true" aria-controls="tab-default-1" id="tab-default-1__item">Item One</a>
-                </li>
-                <li class="slds-tabs_default__item" title="Item Two" role="presentation">
-                <a class="slds-tabs_default__link" href="#" role="tab" tabindex="-1" aria-selected="false" aria-controls="tab-default-2" id="tab-default-2__item">Item Two</a>
-                </li>
-            </ul>
-            <div id="tab-default-1" class="slds-tabs_default__content slds-show" role="tabpanel" aria-labelledby="tab-default-1__item">Item One Content</div>
-            <div id="tab-default-2" class="slds-tabs_default__content slds-hide" role="tabpanel" aria-labelledby="tab-default-2__item">Item Two Content</div>
-        </div>
+        <TabGroup>
+            <div class="slds-tabs_default">
+                <TabList>
+                    <ul class="slds-tabs_default__nav">
+                        <Tab class="left-tab-active"  v-slot="{ selected }">
+                            <li class="slds-tabs_default__item" :class="[selected ? 'slds-is-active' : '']" title="Item One" role="presentation">
+                                <a class="slds-tabs_default__link">Filters</a>
+                            </li>
+                        </Tab>
+                        <Tab class="left-tab-active"  v-slot="{ selected }">
+                            <li class="slds-tabs_default__item" :class="[selected ? 'slds-is-active' : '']" title="Item Two" role="presentation">
+                                <a class="slds-tabs_default__link">Groups</a>
+                            </li>
+                        </Tab>
+                        <Tab class="left-tab-active" v-slot="{ selected }">
+                            <li class="slds-tabs_default__item" :class="[selected ? 'slds-is-active' : '']" title="Item Three" role="presentation">
+                                <a class="slds-tabs_default__link">Columns</a>
+                            </li>
+                        </Tab>
+                    </ul>
+                </TabList>
+                <TabPanels>
+                    <TabPanel>
+                    <div id="tab-default-1" class="slds-tabs_default__content slds-show">
+                        <div class="slds-form-element" v-for="item in items" :key="item.id">
+                            <div class="slds-form-element__control">
+                                <div class="slds-checkbox">
+                                    <input type="checkbox" name="options" :id="item.id" v-model="itemIds" :value="item.id"/>
+                                    <label class="slds-checkbox__label" :for="item.id">
+                                        <span class="slds-checkbox_faux"></span>
+                                        <span class="slds-form-element__label">{{ item.label }}</span>
+                                        <span class="slds-form-element__label check-filter" @click="selectAll">only this</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </TabPanel>
+                    <TabPanel>
+                    <div id="tab-default-1" class="slds-tabs_default__content slds-show">
+                        <div class="slds-form-element" v-for="item in items" :key="item.id">
+                            <div class="slds-form-element__control">
+                                <div class="slds-checkbox">
+                                    <input type="checkbox" name="options" :id="item.id" v-model="itemIds" :value="item.id"/>
+                                    <label class="slds-checkbox__label" :for="item.id">
+                                        <span class="slds-checkbox_faux"></span>
+                                        <span class="slds-form-element__label">{{ item.label }}</span>
+                                        <span class="slds-form-element__label check-filter" @click="selectAll">only this</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    </TabPanel>
+                </TabPanels>
+                <div class="slds-tabs_default__content slds-hide">Item Two Content</div>
+                <div class="slds-tabs_default__content slds-hide" >Item Three Content</div>
+            </div>
+        </TabGroup>
         <b-tabs 
             nav-wrapper-class="slds-tabs_default"
             nav-class="slds-tabs_default__nav"
             content-class="slds-tabs_default__content"
         >
-            <b-tab active title-item-class="slds-tabs_default__item slds-is-active" title-link-class="jemish">
+            <b-tab active :title-item-class="{ 'slds-is-active' : active_el == 1, 'slds-tabs_default__item': defaultClass }">
                 <template #title>
-                    <a class="slds-tabs_default__link">Item One</a>
+                    <a class="slds-tabs_default__link"  @click="activate(1)">Item One</a>
                 </template>
-                <p>Tab contents 1</p>
             </b-tab>
 
-            <b-tab title-item-class="slds-tabs_default__item">
+            <b-tab :title-item-class="{ 'slds-is-active' : active_el == 2, 'slds-tabs_default__item': defaultClass}">
                 <template #title>
-                    <a class="slds-tabs_default__link">Item Two</a>
+                    <a class="slds-tabs_default__link"  @click="activate(2)">Item Two</a>
                 </template>
-                <p>Tab contents 2</p>
             </b-tab>
         </b-tabs>
-        <div>
-            <div class="slds-form-element" v-for="item in items" :key="item.id">
-                <div class="slds-form-element__control">
-                    <div class="slds-checkbox">
-                        <input type="checkbox" name="options" :id="item.id" v-model="itemIds" :value="item.id"/>
-                        <label class="slds-checkbox__label" :for="item.id">
-                            <span class="slds-checkbox_faux"></span>
-                            <span class="slds-form-element__label">{{ item.label }}</span>
-                            <span class="slds-form-element__label check-filter" @click="selectAll">only this</span>
-                        </label>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </template>
+
+<script setup>
+  import { TabGroup, TabList, Tab, TabPanels, TabPanel } from '@headlessui/vue'
+</script>
+
+<style>
+    .left-tab-active{
+        padding: 0;
+        border: none;
+        margin: 0;
+        background: transparent;
+    }
+</style>

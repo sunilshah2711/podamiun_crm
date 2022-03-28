@@ -1,35 +1,46 @@
-@import url(../css/bootstrap.css);
-@import url(../css/slds.css);
 
 body{
-    background: #B1C4DF;
+    background: #F5F6F8;
     min-height: 100vh;
     max-height: 100%;
     padding-bottom: 12px;
 }
 
-ul{
-    padding: 0;
+/* slds global css start */
+
+.slds-context-bar{
+    border-bottom: 3px solid #A85914;
 }
 
-a{
-    transition: all 0.5s;
-    text-decoration: none;
+.slds-context-bar__item.slds-is-active:before, .slds-tabs_default__item.slds-is-active:after, .slds-tabs_default__item:hover:after{
+    background: #A85914;
 }
 
-a:hover{
-    color: #1b96ff;
+.slds-checkbox [type=checkbox]:checked + .slds-checkbox__label .slds-checkbox_faux:after{
+    border-bottom: 2px solid var(--slds-c-checkbox-mark-color-foreground, var(--sds-c-checkbox-mark-color-foreground, #A85914));
+    border-left: 2px solid var(--slds-c-checkbox-mark-color-foreground, var(--sds-c-checkbox-mark-color-foreground, #A85914));
 }
+
+.slds-checkbox [type=checkbox]:focus + .slds-checkbox__label .slds-checkbox_faux{
+    border-color: #A85914;
+    --slds-c-checkbox-shadow: var(--slds-c-checkbox-shadow-focus, var(--sds-c-checkbox-shadow-focus, 0 0 3px #A85914));
+}
+
+
+/* slds global css end */
 
 .left-panel{
     width: 25%;
     min-height: 100vh;
     max-height: 100%;
-    background: #F3F3F3;
+    background: #FFFFFF;
     border-radius: 5px;
     padding: 5px;
     margin: 12px;
     margin-bottom: 0;
+    -webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.02);
+    -moz-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.02);
+    box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.02);
 }
 
 .check-filter{
@@ -38,7 +49,7 @@ a:hover{
 }
 
 .check-filter:hover{
-    color: #1b96ff;
+    color: #A85914;
     text-decoration: underline;
 }
 
