@@ -7,7 +7,7 @@
 <template>
   <Navbar/>
   <div class="page-wrap"> 
-    <LeftPanel/>
+    <!-- <LeftPanel/> -->
     <DataTables/>
   </div>
 </template>

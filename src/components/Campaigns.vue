@@ -10,6 +10,7 @@
                 </div>
                 <h2>Total: 3</h2>
             </div>
+            <button class="slds-button slds-button_brand" @click="isShowing = !isShowing">New</button>
         </div>
         <table aria-multiselectable="true" class="slds-table slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols" role="grid" aria-label="Example advanced table of Opportunities in actionable mode">
             <thead>
@@ -299,34 +300,191 @@
                 </tr>
             </tbody>
         </table>
+        <TransitionRoot
+            :show="isShowing"
+            enter="transition-opacity duration-75"
+            enter-from="opacity-0"
+            enter-to="opacity-100"
+            leave="transition-opacity duration-150"
+            leave-from="opacity-100"
+            leave-to="opacity-0"
+        >
+            <div class="campaign-sidebar-outer" @click="isShowing = !isShowing"></div>
+        </TransitionRoot>
+        <TransitionRoot
+            :show="isShowing"
+            enter="transition-opacity duration-75000"
+            enter-from="opacity-0"
+            enter-to="opacity-100"
+            leave="transition-opacity duration-150000"
+            leave-from="opacity-100"
+            leave-to="opacity-0"
+        >
+            <div class="campaign-sidebar-right">
+                <div class="campaign-hedding">
+                    <div class="campaign-hedding-wrap">
+                        <h2>Email Campaign</h2>
+                        <button @click="isShowing = !isShowing"><font-awesome-icon :icon="['fa', 'xmark']" /></button>
+                    </div>
+                </div>
+                <div class="campaign-body">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="text-input-id-47">Campaign Name</label>
+                        <div class="slds-form-element__control">
+                            <input type="text" id="text-input-id-47" placeholder="Enter campaign Name" class="slds-input" />
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="select-01">Email Template</label>
+                        <div class="slds-form-element__control">
+                            <div class="slds-select_container">
+                                <select class="slds-select" id="select-01">
+                                    <option value="">Select template</option>
+                                    <option>Option One</option>
+                                    <option>Option Two</option>
+                                    <option>Option Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="select-01">Sender</label>
+                        <div class="slds-form-element__control">
+                            <div class="slds-select_container">
+                                <select class="slds-select" id="select-01">
+                                    <option value="">Select sender</option>
+                                    <option>Option One</option>
+                                    <option>Option Two</option>
+                                    <option>Option Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="select-01">List</label>
+                        <div class="slds-form-element__control">
+                            <div class="slds-select_container">
+                                <select class="slds-select" id="select-01">
+                                    <option value="">Select list</option>
+                                    <option>Option One</option>
+                                    <option>Option Two</option>
+                                    <option>Option Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="campaign-input-wrap">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="text-input-id-47">Campaign Name</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="text-input-id-47" placeholder="Enter campaign Name" class="slds-input" />
+                            </div>
+                        </div>
+                        <button class="slds-button slds-button_outline-brand">Send Now</button>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="text-input-id-47">Date &amp; Time</label>
+                        <div class="slds-form-element__control">
+                            <input type="datetime-local" id="text-input-id-47" placeholder="Enter campaign Name" class="slds-input" />
+                        </div>
+                    </div>
+                    <div class="campaign-btn">
+                        <button class="slds-button slds-button_brand">Brand Button</button>
+                        <button class="slds-button slds-button_outline-brand">Outline Brand Button</button>
+                        <button class="slds-button slds-button_outline-brand">Outline Brand Button</button>
+                    </div>
+                </div>
+            </div>
+        </TransitionRoot>
     </div>
 </template>
 
-<style>
-    .right-panel{
-        width: 100%;
-        height: 100%;
-        background: #FFFFFF;
-        border-radius: 5px;
-        padding: 5px;
-        margin: 12px;
-        -webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.02);
-        -moz-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.02);
-        box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.02);
-    }
+<style scoped>
     .data-tabel-search{
         display: flex;
+        justify-content: space-between;
         align-items: center;
-        margin-bottom: 5px;
     }
-    .data-tabel-search .slds-form-element{
-        width: 20%;
+    .campaign-sidebar-outer{
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 60%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.1);
+        z-index: 10;
     }
-    .data-tabel-search .slds-form-element{
+    .campaign-sidebar-right{
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 40%;
+        height: 100%;
+        background: #fff;
+        z-index: 10;
+    }
+    .campaign-hedding{
+        padding: 10px 20px;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .campaign-hedding-wrap{
         display: flex;
+        justify-content: space-between;
         align-items: center;
     }
-    .data-tabel-search h2{
-        margin-left: 10px;
+    .campaign-hedding .campaign-hedding-wrap h2{
+        font-size: 24px;
+    }
+    .campaign-hedding .campaign-hedding-wrap button{
+        background: transparent;
+        border: none;
+        padding: 10px;
+        margin: 0;
+    }
+    .campaign-hedding .campaign-hedding-wrap button svg{
+        font-size: 18px;
+        color: rgba(0, 0, 0, 0.1);
+        transition: ease-in-out 0.3s;
+    }
+    .campaign-hedding .campaign-hedding-wrap button:hover svg{
+        background: transparent;
+        border: none;
+        padding: 0;
+        margin: 0;
+        transition: ease-in-out 0.3s;
+        color: rgba(0, 0, 0, 0.8);
+    }
+    .campaign-body{
+        padding: 10px 20px;
+    }
+    .slds-form-element{
+        margin-bottom: 12px;
+    }
+    .slds-form-element .slds-form-element__label{
+        margin-bottom: 4px;
+    }
+    .campaign-input-wrap{
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-end;
+        width: 100%;
+        margin-bottom: 12px;
+    }
+    .campaign-input-wrap .slds-form-element{
+        width: 82%;
+        margin-bottom: 0;
+    }
+    .campaign-btn{
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 16px;
     }
 </style>
+
+<script setup>
+  import { ref } from 'vue'
+  import { TransitionRoot } from '@headlessui/vue'
+
+  const isShowing = ref(false)
+</script>

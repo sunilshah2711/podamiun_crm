@@ -17,32 +17,41 @@
         </div>
         <nav class="slds-context-bar__secondary" role="navigation">
             <ul class="slds-grid">
-                <li class="slds-context-bar__item slds-is-active">
-                    <a href="#" class="slds-context-bar__label-action" title="Home">
-                    <span class="slds-assistive-text">Current Page:</span>
-                    <span class="slds-truncate" title="Home">Contacts</span>
-                    </a>
-                </li>
-                <!-- <li class="slds-context-bar__item">
-                    <a href="#" class="slds-context-bar__label-action" title="Menu Item">
-                    <span class="slds-truncate" title="Menu Item">Contact Lists</span>
-                    </a>
-                </li> -->
-                <li class="slds-context-bar__item">
-                    <a href="#" class="slds-context-bar__label-action" title="Menu Item">
-                    <span class="slds-truncate" title="Menu Item">Campaigns</span>
-                    </a>
-                </li>
-                <li class="slds-context-bar__item">
-                    <a href="#" class="slds-context-bar__label-action" title="Menu Item">
-                    <span class="slds-truncate" title="Menu Item">Automations</span>
-                    </a>
-                </li>
-                <li class="slds-context-bar__item">
-                    <a href="#" class="slds-context-bar__label-action" title="Menu Item">
-                    <span class="slds-truncate" title="Menu Item">Chat with Support</span>
-                    </a>
-                </li>
+                <router-link to="/" custom v-slot="{ href, navigate, isActive }">
+                    <li class="slds-context-bar__item" :class="[isActive && 'slds-is-active']">
+                        <a :href="href" @click="navigate" class="slds-context-bar__label-action">
+                            <span class="slds-truncate" title="Home">Contacts</span>
+                        </a>
+                    </li>
+                </router-link>
+                <!-- <router-link to="/contact-list" custom v-slot="{ href, navigate, isActive }">
+                    <li class="slds-context-bar__item" :class="[isActive && 'slds-is-active']">
+                        <a :href="href" @click="navigate" class="slds-context-bar__label-action">
+                        <span class="slds-truncate" title="Menu Item">Contact Lists</span>
+                        </a>
+                    </li>
+                </router-link> -->
+                <router-link to="/campaigns" custom v-slot="{ href, navigate, isActive }">
+                    <li class="slds-context-bar__item" :class="[isActive && 'slds-is-active']">
+                        <a :href="href" @click="navigate" class="slds-context-bar__label-action">
+                            <span class="slds-truncate" title="Menu Item">Campaigns</span>
+                        </a>
+                    </li>
+                </router-link>
+                <router-link to="/automations" custom v-slot="{ href, navigate, isActive }">
+                    <li class="slds-context-bar__item" :class="[isActive && 'slds-is-active']">
+                        <a :href="href" @click="navigate" class="slds-context-bar__label-action">
+                            <span class="slds-truncate" title="Menu Item">Automations</span>
+                        </a>
+                    </li>
+                </router-link>
+                <router-link to="/support" custom v-slot="{ href, navigate, isActive }">
+                    <li class="slds-context-bar__item" :class="[isActive && 'slds-is-active']">
+                        <a :href="href" @click="navigate" class="slds-context-bar__label-action">
+                            <span class="slds-truncate" title="Menu Item">Chat with Support</span>
+                        </a>
+                    </li>
+                </router-link>
                 <li class="slds-is-open slds-context-bar__item slds-context-bar__dropdown-trigger slds-dropdown-trigger slds-dropdown-trigger_click">
                     <Menu>
                         <MenuButton class="slds-context-bar__label-action nav-dropdown-btn" title="Menu Item">

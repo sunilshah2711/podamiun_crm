@@ -1,9 +1,9 @@
-
+html{
+    height: 100%;
+}
 body{
-    background: #F5F6F8;
-    min-height: 100vh;
-    max-height: 100%;
-    padding-bottom: 12px;
+    background: #fff;
+    height: 100%;
 }
 
 /* slds global css start */
@@ -26,6 +26,9 @@ body{
     --slds-c-checkbox-shadow: var(--slds-c-checkbox-shadow-focus, var(--sds-c-checkbox-shadow-focus, 0 0 3px #A85914));
 }
 
+.slds-resizable__divider{
+    z-index: 3;
+}
 
 /* slds global css end */
 
