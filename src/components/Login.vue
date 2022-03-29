@@ -10,8 +10,7 @@
             </svg>
             <h1>Welcome to <span>podamium</span></h1>
             <button><font-awesome-icon :icon="['fab', 'google']" />Login with google</button>
-            <button class="slds-m-bottom_none"><font-awesome-icon :icon="['fab', 'google']" />Register with google</button>
-            <i class="fa-brands fa-google"></i>
+            <button><font-awesome-icon :icon="['fab', 'google']" />Create new google</button>
         </div>
     </div>
 </template>
@@ -25,11 +24,11 @@
     .login-main{
         width: 350px;
         height: auto;
-        background: #F2F2F2;
+        background: #FFFFFF;
         border-radius: 5px;
-        -webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.20);
-        -moz-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.20);
-        box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.20);
+        -webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.02);
+        -moz-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.02);
+        box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.02);
         padding: 10px;
         text-align: center;
     }
@@ -51,12 +50,13 @@
         margin-bottom: 20px !important;
         border: 2px solid#A85914;
         transition: ease-in-out 0.3s;
+        background-color: #FFFFFF;
     }
     .login-main button svg{
         margin: 0 5px;
     }
     .login-main button:hover{
         background: #A85914;
-        color: #F2F2F2;
+        color: #FFFFFF;
     }
 </style>
