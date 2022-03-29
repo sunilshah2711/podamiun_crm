@@ -121,6 +121,31 @@
 </script>
 
 <style>
+    .left-panel{
+        width: 25%;
+        min-height: 100vh;
+        max-height: 100%;
+        background: #FFFFFF;
+        border-radius: 5px;
+        padding: 5px;
+        margin: 12px;
+        margin-bottom: 0;
+        -webkit-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.02);
+        -moz-box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.02);
+        box-shadow: 0px 0px 10px 2px rgba(0,0,0,0.02);
+    }
+    .check-filter{
+        visibility: hidden;
+        transition: ease-in-out 0.3s;
+    }
+    .check-filter:hover{
+        color: #A85914;
+        text-decoration: underline;
+    }
+    .slds-checkbox__label:hover .check-filter{
+        visibility: visible;
+        cursor: pointer;
+    }
     .left-tab-active{
         padding: 0;
         border: none;
