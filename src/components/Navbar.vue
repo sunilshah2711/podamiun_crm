@@ -82,7 +82,7 @@
                                 </MenuItem>
                                 <MenuItem>
                                     <li class="slds-dropdown__item" role="presentation">
-                                        <a href="/" role="menuitem">
+                                        <a href="/image-library" role="menuitem">
                                             <span class="slds-truncate" title="Menu Item Three">Image Library</span>
                                         </a>
                                     </li>
