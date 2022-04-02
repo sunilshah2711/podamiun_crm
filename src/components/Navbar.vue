@@ -68,21 +68,21 @@
                             <ul class="slds-dropdown__list" role="menu">
                                 <MenuItem>
                                     <li class="slds-dropdown__item" role="presentation">
-                                        <a href="#" role="menuitem" tabindex="-1">
+                                        <a href="/" role="menuitem">
                                             <span class="slds-truncate" title="Menu Item One">Templates</span>
                                         </a>
                                     </li>
                                 </MenuItem>
                                 <MenuItem>
                                     <li class="slds-dropdown__item" role="presentation">
-                                        <a href="#" role="menuitem" tabindex="-1">
+                                        <a href="/sender" role="menuitem">
                                             <span class="slds-truncate" title="Menu Item Two">Senders</span>
                                         </a>
                                     </li>
                                 </MenuItem>
                                 <MenuItem>
                                     <li class="slds-dropdown__item" role="presentation">
-                                        <a href="#" role="menuitem" tabindex="-1">
+                                        <a href="/" role="menuitem">
                                             <span class="slds-truncate" title="Menu Item Three">Image Library</span>
                                         </a>
                                     </li>
@@ -129,35 +129,35 @@
                                 <ul class="slds-dropdown__list" role="menu" aria-label="Show More">
                                     <MenuItem>
                                         <li class="slds-dropdown__item" role="presentation">
-                                            <a href="#" role="menuitem" tabindex="0">
+                                            <a href="/" role="menuitem" tabindex="0">
                                                 <span class="slds-truncate" title="Menu Item One">Profile</span>
                                             </a>
                                         </li>
                                     </MenuItem>
                                     <MenuItem>
                                         <li class="slds-dropdown__item" role="presentation">
-                                            <a href="#" role="menuitem" tabindex="-1">
+                                            <a href="/admin" role="menuitem" tabindex="-1">
                                                 <span class="slds-truncate" title="Menu Item Two">Admin</span>
                                             </a>
                                         </li>
                                     </MenuItem>
                                     <MenuItem>
                                         <li class="slds-dropdown__item" role="presentation">
-                                            <a href="#" role="menuitem" tabindex="-1">
+                                            <a href="/workspace" role="menuitem" tabindex="-1">
                                                 <span class="slds-truncate" title="Menu Item Three">Switch Workspace</span>
                                             </a>
                                         </li>
                                     </MenuItem>
                                     <MenuItem>
                                         <li class="slds-dropdown__item" role="presentation">
-                                            <a href="#" role="menuitem" tabindex="-1">
+                                            <a href="/" role="menuitem" tabindex="-1">
                                                 <span class="slds-truncate" title="Menu Item Four">Recycle Bin</span>
                                             </a>
                                         </li>
                                     </MenuItem>
                                     <MenuItem>
                                     <li class="slds-dropdown__item" role="presentation">
-                                        <a href="#" role="menuitem" tabindex="-1">
+                                        <a href="/login" role="menuitem" tabindex="-1">
                                             <span class="slds-truncate" title="Menu Item Four">Log Out</span>
                                         </a>
                                     </li>

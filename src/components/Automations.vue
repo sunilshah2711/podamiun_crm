@@ -323,7 +323,7 @@
             <div class="campaign-sidebar-right">
                 <div class="campaign-hedding">
                     <div class="campaign-hedding-wrap">
-                        <h2>Email Campaign</h2>
+                        <h2>Email Automations</h2>
                         <button @click="isShowing = !isShowing"><font-awesome-icon :icon="['fa', 'xmark']" /></button>
                     </div>
                 </div>
@@ -361,11 +361,11 @@
                         </div>
                     </div>
                     <div class="slds-form-element">
-                        <label class="slds-form-element__label" for="select-01">List</label>
+                        <label class="slds-form-element__label" for="select-01">Form</label>
                         <div class="slds-form-element__control">
                             <div class="slds-select_container">
                                 <select class="slds-select" id="select-01">
-                                    <option value="">Select list</option>
+                                    <option value="">Select form</option>
                                     <option>Option One</option>
                                     <option>Option Two</option>
                                     <option>Option Three</option>
@@ -381,12 +381,6 @@
                             </div>
                         </div>
                         <button class="slds-button slds-button_outline-brand">Send Now</button>
-                    </div>
-                    <div class="slds-form-element">
-                        <label class="slds-form-element__label" for="text-input-id-47">Date &amp; Time</label>
-                        <div class="slds-form-element__control">
-                            <input type="datetime-local" id="text-input-id-47" placeholder="Enter campaign Name" class="slds-input" />
-                        </div>
                     </div>
                 </div>
                 <div class="campaign-btn">

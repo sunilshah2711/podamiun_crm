@@ -9,8 +9,12 @@
                 />
             </svg>
             <h1>Welcome to <span>podamium</span></h1>
-            <button><font-awesome-icon :icon="['fab', 'google']" />Login with google</button>
-            <button><font-awesome-icon :icon="['fab', 'google']" />Create new google</button>
+            <router-link to="/" custom v-slot="{ navigate }">
+                <button @click="navigate"><font-awesome-icon :icon="['fab', 'google']" />Login with google</button>
+            </router-link>
+            <router-link to="/" custom v-slot="{ navigate }">
+                <button @click="navigate"><font-awesome-icon :icon="['fab', 'google']" />Register with google</button>
+            </router-link>
         </div>
     </div>
 </template>

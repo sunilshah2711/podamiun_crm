@@ -2,7 +2,9 @@
     <div class="workspace-screen">
         <div class="workspace-main">
             <h1>Workspace</h1>
-            <button><font-awesome-icon :icon="['fa', 'file-lines']" />Test 1</button>
+            <router-link to="/" custom v-slot="{ navigate }">
+                <button @click="navigate"><font-awesome-icon :icon="['fa', 'file-lines']" />Test 1</button>
+            </router-link>
             <button><font-awesome-icon :icon="['fa', 'file-lines']" />Create new workspace</button>
         </div>
     </div>

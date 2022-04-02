@@ -6,31 +6,11 @@ body{
     height: 100%;
 }
 
-/* slds global css start */
-
-.slds-context-bar{
-    border-bottom: 3px solid #A85914;
-}
-
-.slds-context-bar__item.slds-is-active:before, .slds-tabs_default__item.slds-is-active:after, .slds-tabs_default__item:hover:after{
-    background: #A85914;
-}
-
-.slds-checkbox [type=checkbox]:checked + .slds-checkbox__label .slds-checkbox_faux:after{
-    border-bottom: 2px solid var(--slds-c-checkbox-mark-color-foreground, var(--sds-c-checkbox-mark-color-foreground, #A85914));
-    border-left: 2px solid var(--slds-c-checkbox-mark-color-foreground, var(--sds-c-checkbox-mark-color-foreground, #A85914));
-}
-
-.slds-checkbox [type=checkbox]:focus + .slds-checkbox__label .slds-checkbox_faux{
-    border-color: #A85914;
-    --slds-c-checkbox-shadow: var(--slds-c-checkbox-shadow-focus, var(--sds-c-checkbox-shadow-focus, 0 0 3px #A85914));
-}
-
+/* slds css start */
 .slds-resizable__divider{
-    z-index: 3;
+    z-index: 1;
 }
-
-/* slds global css end */
+/* slds css end */
 
 .page-wrap{
     display: flex;
