@@ -1,232 +1,115 @@
+<script setup>
+    import { ref, onMounted } from 'vue'
+    import { Dropzone } from "dropzone";
+
+    const dropRef = ref(null)
+
+    const customDropzone = `
+        <div class="dz-preview dz-processing dz-error dz-complete dz-image-preview">
+            <div class="dz-image">
+                <img data-dz-thumbnail />
+            </div>
+            <div class="dz-details">
+                <div class="dz-size">
+                    <span data-dz-size></span>
+                </div>
+                <div class="dz-filename">
+                    <span data-dz-name></span>
+                </div> 
+            </div>
+            <div class="dz-progress">
+                <span class="dz-upload" data-dz-uploadprogress></span>
+            </div>
+            <!--
+            <div class="dz-error-message">
+                <span data-dz-errormessage></span>
+            </div>
+            <div class="dz-success-mark">
+                <svg width="54" height="54" viewBox="0 0 54 54" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.2071 29.7929L14.2929 25.7071C14.6834 25.3166 15.3166 25.3166 15.7071 25.7071L21.2929 31.2929C21.6834 31.6834 22.3166 31.6834 22.7071 31.2929L38.2929 15.7071C38.6834 15.3166 39.3166 15.3166 39.7071 15.7071L43.7929 19.7929C44.1834 20.1834 44.1834 20.8166 43.7929 21.2071L22.7071 42.2929C22.3166 42.6834 21.6834 42.6834 21.2929 42.2929L10.2071 31.2071C9.81658 30.8166 9.81658 30.1834 10.2071 29.7929Z"></path>
+                </svg>
+            </div>
+            <div class="dz-error-mark">
+                <svg width="54" height="54" viewBox="0 0 54 54" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M26.2929 20.2929L19.2071 13.2071C18.8166 12.8166 18.1834 12.8166 17.7929 13.2071L13.2071 17.7929C12.8166 18.1834 12.8166 18.8166 13.2071 19.2071L20.2929 26.2929C20.6834 26.6834 20.6834 27.3166 20.2929 27.7071L13.2071 34.7929C12.8166 35.1834 12.8166 35.8166 13.2071 36.2071L17.7929 40.7929C18.1834 41.1834 18.8166 41.1834 19.2071 40.7929L26.2929 33.7071C26.6834 33.3166 27.3166 33.3166 27.7071 33.7071L34.7929 40.7929C35.1834 41.1834 35.8166 41.1834 36.2071 40.7929L40.7929 36.2071C41.1834 35.8166 41.1834 35.1834 40.7929 34.7929L33.7071 27.7071C33.3166 27.3166 33.3166 26.6834 33.7071 26.2929L40.7929 19.2071C41.1834 18.8166 41.1834 18.1834 40.7929 17.7929L36.2071 13.2071C35.8166 12.8166 35.1834 12.8166 34.7929 13.2071L27.7071 20.2929C27.3166 20.6834 26.6834 20.6834 26.2929 20.2929Z"></path>
+                </svg>  
+            </div>
+            -->
+            <a class="dz-remove" href="javascript:undefined;" data-dz-remove>Remove</a>
+        </div>
+    `
+
+    onMounted(() => {
+        if(dropRef.value !== null){
+            new Dropzone(dropRef.value, {
+                url: 'http://localhost:3000/image-library',
+                previewTemplate: customDropzone,
+            })
+
+            if(dropRef.value.querySelector('.dz-default')){
+                dropRef.value.querySelector('.dz-default').innerHTML = `
+                    <div class="placeholder">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512" class="upload-icon">
+                            <path
+                                d="M144 480C64.47 480 0 415.5 0 336C0 273.2 40.17 219.8 96.2 200.1C96.07 197.4 96 194.7 96 192C96 103.6 167.6 32 256 32C315.3 32 367 64.25 394.7 112.2C409.9 101.1 428.3 96 448 96C501 96 544 138.1 544 192C544 204.2 541.7 215.8 537.6 226.6C596 238.4 640 290.1 640 352C640 422.7 582.7 480 512 480H144zM223 263C213.7 272.4 213.7 287.6 223 296.1C232.4 306.3 247.6 306.3 256.1 296.1L296 257.9V392C296 405.3 306.7 416 320 416C333.3 416 344 405.3 344 392V257.9L383 296.1C392.4 306.3 407.6 306.3 416.1 296.1C426.3 287.6 426.3 272.4 416.1 263L336.1 183C327.6 173.7 312.4 173.7 303 183L223 263z"
+                            />
+                        </svg>
+                        <h3>Drop files here to upload</h3>
+                    </div>
+                `
+            }
+        }
+    })
+</script>
+
 <template>
     <div class="right-panel">
-        <div class="data-tabel-search">
-            <div class="slds-form-element">
-                <div class="slds-form-element__control slds-input-has-icon slds-input-has-icon_left">
-                    <svg class="slds-icon slds-input__icon slds-input__icon_left slds-icon-text-default" aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#search"></use>
-                    </svg>
-                    <input type="text" placeholder="Search this list..." class="slds-input" />
-                </div>
-                <h2>Total: 3</h2>
-            </div>
+        <div ref="dropRef" class="dropzone">
         </div>
-        <table aria-multiselectable="true" class="slds-table slds-table_bordered slds-table_fixed-layout slds-table_resizable-cols" role="grid" aria-label="Example advanced table of Opportunities in actionable mode">
-            <thead>
-                <tr class="slds-line-height_reset">
-                <th class="slds-text-align_right slds-cell_action-mode" scope="col" style="width:3.25rem">
-                    <span id="column-group-header" class="slds-assistive-text">Choose a row</span>
-                    <div class="slds-th__action slds-th__action_form">
-                    <div class="slds-checkbox">
-                        <input type="checkbox" name="options" id="checkbox-unique-id-297" value="checkbox-unique-id-297" tabindex="0" aria-labelledby="check-select-all-label column-group-header" />
-                        <label class="slds-checkbox__label" for="checkbox-unique-id-297" id="check-select-all-label">
-                        <span class="slds-checkbox_faux"></span>
-                        <span class="slds-form-element__label slds-assistive-text">Select All</span>
-                        </label>
-                    </div>
-                    </div>
-                </th>
-                <th aria-label="Name" aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
-                    <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
-                    <span class="slds-assistive-text">Sort by: </span>
-                    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
-                        <span class="slds-truncate" title="Name">Senders</span>
-                        <span class="slds-icon_container slds-icon-utility-arrowdown">
-                        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
-                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
-                        </svg>
-                        </span>
-                    </div>
-                    </a>
-                    <div class="slds-resizable">
-                    <input type="range" aria-label="Name column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-540" max="1000" min="20" tabindex="0" />
-                    <span class="slds-resizable__handle">
-                        <span class="slds-resizable__divider"></span>
-                    </span>
-                    </div>
-                </th>
-                <th aria-label="Account Name" aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
-                    <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
-                    <span class="slds-assistive-text">Sort by: </span>
-                    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
-                        <span class="slds-truncate" title="Account Name">Address</span>
-                        <span class="slds-icon_container slds-icon-utility-arrowdown">
-                        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
-                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
-                        </svg>
-                        </span>
-                    </div>
-                    </a>
-                    <div class="slds-resizable">
-                    <input type="range" aria-label="Account Name column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-541" max="1000" min="20" tabindex="0" />
-                    <span class="slds-resizable__handle">
-                        <span class="slds-resizable__divider"></span>
-                    </span>
-                    </div>
-                </th>
-                <th aria-label="Close Date" aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
-                    <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
-                    <span class="slds-assistive-text">Sort by: </span>
-                    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
-                        <span class="slds-truncate" title="Close Date">Nickname</span>
-                        <span class="slds-icon_container slds-icon-utility-arrowdown">
-                        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
-                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
-                        </svg>
-                        </span>
-                    </div>
-                    </a>
-                    <div class="slds-resizable">
-                    <input type="range" aria-label="Close Date column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-542" max="1000" min="20" tabindex="0" />
-                    <span class="slds-resizable__handle">
-                        <span class="slds-resizable__divider"></span>
-                    </span>
-                    </div>
-                </th>
-                <th aria-label="Close Date" aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
-                    <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
-                    <span class="slds-assistive-text">Sort by: </span>
-                    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
-                        <span class="slds-truncate" title="Close Date">Verified</span>
-                        <span class="slds-icon_container slds-icon-utility-arrowdown">
-                        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
-                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
-                        </svg>
-                        </span>
-                    </div>
-                    </a>
-                    <div class="slds-resizable">
-                    <input type="range" aria-label="Close Date column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-542" max="1000" min="20" tabindex="0" />
-                    <span class="slds-resizable__handle">
-                        <span class="slds-resizable__divider"></span>
-                    </span>
-                    </div>
-                </th>
-                <th aria-label="Close Date" aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
-                    <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
-                    <span class="slds-assistive-text">Sort by: </span>
-                    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
-                        <span class="slds-truncate" title="Close Date">Action</span>
-                        <span class="slds-icon_container slds-icon-utility-arrowdown">
-                        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
-                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
-                        </svg>
-                        </span>
-                    </div>
-                    </a>
-                    <div class="slds-resizable">
-                    <input type="range" aria-label="Close Date column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-542" max="1000" min="20" tabindex="0" />
-                    <span class="slds-resizable__handle">
-                        <span class="slds-resizable__divider"></span>
-                    </span>
-                    </div>
-                </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr aria-selected="false" class="slds-hint-parent">
-                <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
-                    <div class="slds-checkbox">
-                    <input type="checkbox" name="options" id="checkbox-01" value="checkbox-01" tabindex="0" aria-labelledby="check-button-label-01 column-group-header" />
-                    <label class="slds-checkbox__label" for="checkbox-01" id="check-button-label-01">
-                        <span class="slds-checkbox_faux"></span>
-                        <span class="slds-form-element__label slds-assistive-text">Select item 1</span>
-                    </label>
-                    </div>
-                </td>
-                <th class="slds-cell_action-mode" scope="row">
-                    <div class="slds-truncate">
-                        <div><span class="slds-badge slds-theme_success slds-m-bottom_small">From</span> admin@podamium.com</div>
-                        <div><span class="slds-badge slds-badge_inverse">Reply</span> manger@podamium.com</div>
-                    </div>
-                </th>
-                <td class="slds-cell_action-mode" role="gridcell">
-                    <div class="slds-truncate" title="Acme">Acme</div>
-                </td>
-                <td class="slds-cell_action-mode" role="gridcell">
-                    <div class="slds-truncate" title="4/10/15">4/10/15</div>
-                </td>
-                <td class="slds-cell_action-mode" role="gridcell">
-                    <div class="slds-truncate" title="Value Proposition">Value Proposition</div>
-                </td>
-                <td class="slds-cell_action-mode" role="gridcell">
-                    <button class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small" aria-haspopup="true" tabindex="0" title="More actions for Acme - 1,200 Widgets">
-                    <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
-                    </svg>
-                    <span class="slds-assistive-text">More actions for Acme - 1,200 Widgets</span>
-                    </button>
-                </td>
-                </tr>
-                <tr aria-selected="false" class="slds-hint-parent">
-                <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
-                    <div class="slds-checkbox">
-                    <input type="checkbox" name="options" id="checkbox-02" value="checkbox-02" tabindex="0" aria-labelledby="check-button-label-02 column-group-header" />
-                    <label class="slds-checkbox__label" for="checkbox-02" id="check-button-label-02">
-                        <span class="slds-checkbox_faux"></span>
-                        <span class="slds-form-element__label slds-assistive-text">Select item 2</span>
-                    </label>
-                    </div>
-                </td>
-                <th class="slds-cell_action-mode" scope="row">
-                    <div class="slds-truncate">
-                        <div><span class="slds-badge slds-theme_success slds-m-bottom_small">From</span> admin@podamium.com</div>
-                        <div><span class="slds-badge slds-badge_inverse">Reply</span> manger@podamium.com</div>
-                    </div>
-                </th>
-                <td class="slds-cell_action-mode" role="gridcell">
-                    <div class="slds-truncate" title="Acme">Acme</div>
-                </td>
-                <td class="slds-cell_action-mode" role="gridcell">
-                    <div class="slds-truncate" title="1/31/15">1/31/15</div>
-                </td>
-                <td class="slds-cell_action-mode" role="gridcell">
-                    <div class="slds-truncate" title="Prospecting">Prospecting</div>
-                </td>
-                <td class="slds-cell_action-mode" role="gridcell">
-                    <button class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small" aria-haspopup="true" tabindex="0" title="More actions for Acme - 200 Widgets">
-                    <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
-                    </svg>
-                    <span class="slds-assistive-text">More actions for Acme - 200 Widgets</span>
-                    </button>
-                </td>
-                </tr>
-                <tr aria-selected="false" class="slds-hint-parent">
-                <td class="slds-text-align_right slds-cell_action-mode" role="gridcell">
-                    <div class="slds-checkbox">
-                    <input type="checkbox" name="options" id="checkbox-03" value="checkbox-03" tabindex="0" aria-labelledby="check-button-label-03 column-group-header" />
-                    <label class="slds-checkbox__label" for="checkbox-03" id="check-button-label-03">
-                        <span class="slds-checkbox_faux"></span>
-                        <span class="slds-form-element__label slds-assistive-text">Select item 3</span>
-                    </label>
-                    </div>
-                </td>
-                <th class="slds-cell_action-mode" scope="row">
-                    <div class="slds-truncate">
-                        <div><span class="slds-badge slds-theme_success slds-m-bottom_small">From</span> admin@podamium.com</div>
-                        <div><span class="slds-badge slds-badge_inverse">Reply</span> manger@podamium.com</div>
-                    </div>
-                </th>
-                <td class="slds-cell_action-mode" role="gridcell">
-                    <div class="slds-truncate" title="salesforce.com">salesforce.com</div>
-                </td>
-                <td class="slds-cell_action-mode" role="gridcell">
-                    <div class="slds-truncate" title="1/31/15 3:45PM">1/31/15 3:45PM</div>
-                </td>
-                <td class="slds-cell_action-mode" role="gridcell">
-                    <div class="slds-truncate" title="Id. Decision Makers">Id. Decision Makers</div>
-                </td>
-                <td class="slds-cell_action-mode" role="gridcell">
-                    <button class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small" aria-haspopup="true" tabindex="0" title="More actions for salesforce.com - 1,000 Widgets">
-                    <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
-                    </svg>
-                    <span class="slds-assistive-text">More actions for salesforce.com - 1,000 Widgets</span>
-                    </button>
-                </td>
-                </tr>
-            </tbody>
-        </table>
     </div>
 </template>
+
+<style>
+    .dropzone{
+        padding: 0 !important;
+        /* pointer-events: none; */
+        border: 0;
+    }
+    .dropzone .dz-message{
+        margin: 0 !important;
+    }
+    .dz-main{
+        width: 100%;
+        height: 100%;
+        border: 2px dashed blue;
+    }
+    .dropzone .dz-default .placeholder{
+        width: 100%;
+        height: 200px;
+        border: 1px dashed #dadfe4;
+        border-radius: 5px;
+        padding: 10px;
+        display: grid;
+        place-items: center;
+        text-align: center;
+    }
+    .dropzone .dz-default .placeholder h3{
+        font-size: 18px;
+        color: #818EA3;
+        margin-bottom: 0;
+        font-weight: 500;
+    }
+    .dz-default{
+        /* pointer-events: auto; */
+        cursor: pointer;
+    }
+    .dz-custom-files{
+        /* pointer-events: auto; */
+        cursor: pointer;
+    }
+    .upload-icon{
+        width: 100%;
+        height: 120px;
+        fill: #818EA3;
+    }
+</style>

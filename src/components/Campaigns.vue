@@ -122,25 +122,6 @@
                     </span>
                     </div>
                 </th>
-                <th aria-label="Amount" aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
-                    <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
-                    <span class="slds-assistive-text">Sort by: </span>
-                    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
-                        <span class="slds-truncate" title="Amount">Amount</span>
-                        <span class="slds-icon_container slds-icon-utility-arrowdown">
-                        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
-                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
-                        </svg>
-                        </span>
-                    </div>
-                    </a>
-                    <div class="slds-resizable">
-                    <input type="range" aria-label="Amount column width" class="slds-resizable__input slds-assistive-text" id="cell-resize-handle-545" max="1000" min="20" tabindex="0" />
-                    <span class="slds-resizable__handle">
-                        <span class="slds-resizable__divider"></span>
-                    </span>
-                    </div>
-                </th>
                 <th aria-label="Contact" aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
                     <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
                     <span class="slds-assistive-text">Sort by: </span>
@@ -160,8 +141,18 @@
                     </span>
                     </div>
                 </th>
-                <th class="slds-cell_action-mode" scope="col" style="width:3.25rem">
-                    <div class="slds-truncate slds-assistive-text" title="Actions">Actions</div>
+                <th aria-label="Amount" aria-sort="none" class="slds-is-resizable slds-is-sortable slds-cell_action-mode" scope="col">
+                    <a class="slds-th__action slds-text-link_reset" href="#" role="button" tabindex="0">
+                    <span class="slds-assistive-text">Sort by: </span>
+                    <div class="slds-grid slds-grid_vertical-align-center slds-has-flexi-truncate">
+                        <span class="slds-truncate" title="Amount">Actions</span>
+                        <span class="slds-icon_container slds-icon-utility-arrowdown">
+                        <svg class="slds-icon slds-icon-text-default slds-is-sortable__icon " aria-hidden="true">
+                            <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#arrowdown"></use>
+                        </svg>
+                        </span>
+                    </div>
+                    </a>
                 </th>
                 </tr>
             </thead>
@@ -194,20 +185,12 @@
                     <div class="slds-truncate" title="30%">30%</div>
                 </td>
                 <td class="slds-cell_action-mode" role="gridcell">
-                    <div class="slds-truncate" title="$25,000,000">$25,000,000</div>
-                </td>
-                <td class="slds-cell_action-mode" role="gridcell">
                     <div class="slds-truncate" title="jrogers@acme.com">
                     <a href="#" tabindex="0">jrogers@acme.com</a>
                     </div>
                 </td>
                 <td class="slds-cell_action-mode" role="gridcell">
-                    <button class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small" aria-haspopup="true" tabindex="0" title="More actions for Acme - 1,200 Widgets">
-                    <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
-                    </svg>
-                    <span class="slds-assistive-text">More actions for Acme - 1,200 Widgets</span>
-                    </button>
+                    <div class="slds-truncate" title="$25,000,000"><button class="slds-button slds-button_outline-brand" @click="isShowing2 = !isShowing2">View</button></div>
                 </td>
                 </tr>
                 <tr aria-selected="false" class="slds-hint-parent">
@@ -238,20 +221,12 @@
                     <div class="slds-truncate" title="60%">60%</div>
                 </td>
                 <td class="slds-cell_action-mode" role="gridcell">
-                    <div class="slds-truncate" title="$5,000,000">$5,000,000</div>
-                </td>
-                <td class="slds-cell_action-mode" role="gridcell">
                     <div class="slds-truncate" title="bob@acme.com">
                     <a href="#" tabindex="0">bob@acme.com</a>
                     </div>
                 </td>
                 <td class="slds-cell_action-mode" role="gridcell">
-                    <button class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small" aria-haspopup="true" tabindex="0" title="More actions for Acme - 200 Widgets">
-                    <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
-                    </svg>
-                    <span class="slds-assistive-text">More actions for Acme - 200 Widgets</span>
-                    </button>
+                    <div class="slds-truncate" title="$5,000,000"><button class="slds-button slds-button_outline-brand" @click="isShowing2 = !isShowing2">View</button></div>
                 </td>
                 </tr>
                 <tr aria-selected="false" class="slds-hint-parent">
@@ -282,20 +257,12 @@
                     <div class="slds-truncate" title="70%">70%</div>
                 </td>
                 <td class="slds-cell_action-mode" role="gridcell">
-                    <div class="slds-truncate" title="$25,000">$25,000</div>
-                </td>
-                <td class="slds-cell_action-mode" role="gridcell">
                     <div class="slds-truncate" title="nathan@salesforce.com">
                     <a href="#" tabindex="0">nathan@salesforce.com</a>
                     </div>
                 </td>
                 <td class="slds-cell_action-mode" role="gridcell">
-                    <button class="slds-button slds-button_icon slds-button_icon-border-filled slds-button_icon-x-small" aria-haspopup="true" tabindex="0" title="More actions for salesforce.com - 1,000 Widgets">
-                    <svg class="slds-button__icon slds-button__icon_hint slds-button__icon_small" aria-hidden="true">
-                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#down"></use>
-                    </svg>
-                    <span class="slds-assistive-text">More actions for salesforce.com - 1,000 Widgets</span>
-                    </button>
+                    <div class="slds-truncate" title="$25,000"><button class="slds-button slds-button_outline-brand" @click="isShowing2 = !isShowin2">View</button></div>
                 </td>
                 </tr>
             </tbody>
@@ -345,6 +312,113 @@
                                     <option>Option Three</option>
                                 </select>
                             </div>
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="select-01">Sender</label>
+                        <div class="slds-form-element__control">
+                            <div class="slds-select_container">
+                                <select class="slds-select" id="select-01">
+                                    <option value="">Select sender</option>
+                                    <option>Option One</option>
+                                    <option>Option Two</option>
+                                    <option>Option Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="select-01">List</label>
+                        <div class="slds-form-element__control">
+                            <div class="slds-select_container">
+                                <select class="slds-select" id="select-01">
+                                    <option value="">Select list</option>
+                                    <option>Option One</option>
+                                    <option>Option Two</option>
+                                    <option>Option Three</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="campaign-input-wrap">
+                        <div class="slds-form-element">
+                            <label class="slds-form-element__label" for="text-input-id-47">Send a test email</label>
+                            <div class="slds-form-element__control">
+                                <input type="text" id="text-input-id-47" placeholder="Enter email by separated comma" class="slds-input" />
+                            </div>
+                        </div>
+                        <button class="slds-button slds-button_outline-brand">Send Now</button>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="text-input-id-47">Date &amp; Time</label>
+                        <div class="slds-form-element__control">
+                            <input type="datetime-local" id="text-input-id-47" placeholder="Enter campaign Name" class="slds-input" />
+                        </div>
+                    </div>
+                </div>
+                <div class="campaign-btn">
+                    <button class="slds-button slds-button_brand">Cancel</button>
+                    <button class="slds-button slds-button_outline-brand">Save As Draft</button>
+                    <button class="slds-button slds-button_outline-brand">Activate</button>
+                </div>
+            </div>
+        </TransitionRoot>
+        
+        <TransitionRoot
+            :show="isShowing2"
+            enter="transition-opacity duration-75"
+            enter-from="opacity-0"
+            enter-to="opacity-100"
+            leave="transition-opacity duration-150"
+            leave-from="opacity-100"
+            leave-to="opacity-0"
+        >
+            <div class="campaign-sidebar-outer" @click="isShowing2 = !isShowing2"></div>
+        </TransitionRoot>
+        <TransitionRoot
+            :show="isShowing2"
+            enter="transition-opacity duration-75000"
+            enter-from="opacity-0"
+            enter-to="opacity-100"
+            leave="transition-opacity duration-150000"
+            leave-from="opacity-100"
+            leave-to="opacity-0"
+        >
+            <div class="campaign-sidebar-right">
+                <div class="campaign-hedding">
+                    <div class="campaign-hedding-wrap">
+                        <h2>Email Campaign</h2>
+                        <button @click="isShowing2 = !isShowing2"><font-awesome-icon :icon="['fa', 'xmark']" /></button>
+                    </div>
+                </div>
+                <div class="campaign-body">
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="text-input-id-47">Campaign Name</label>
+                        <div class="slds-form-element__control">
+                            <input type="text" id="text-input-id-47" placeholder="Enter campaign Name" class="slds-input" />
+                        </div>
+                    </div>
+                    <div class="slds-form-element">
+                        <label class="slds-form-element__label" for="select-01">Email Template</label>
+                        <div class="slds-chart-wrap">
+                            <div class="slds-form-element__control">
+                                <div class="slds-select_container">
+                                    <select class="slds-select" id="select-01">
+                                        <option value="">Select template</option>
+                                        <option>Option One</option>
+                                        <option>Option Two</option>
+                                        <option>Option Three</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <router-link to="/email-campaigns" custom v-slot="{ navigate }">
+                                <button @click="navigate" class="slds-button slds-button_icon slds-button_icon-brand" title="Chart">
+                                    <svg class="slds-button__icon" aria-hidden="true">
+                                        <use xlink:href="/assets/icons/utility-sprite/svg/symbols.svg#chart"></use>
+                                    </svg>
+                                    <span class="slds-assistive-text">Chart</span>
+                                </button>
+                            </router-link>
                         </div>
                     </div>
                     <div class="slds-form-element">
@@ -471,7 +545,7 @@
         margin-bottom: 12px;
     }
     .campaign-input-wrap .slds-form-element{
-        width: 82%;
+        width: 81%;
         margin-bottom: 0;
     }
     .campaign-btn{
@@ -481,6 +555,16 @@
         border-top: 1px solid rgba(0, 0, 0, 0.1);
         padding: 16px 20px;
     }
+    .slds-chart-wrap{
+        width: 100%;
+        display: flex;
+    }
+    .slds-chart-wrap .slds-form-element__control{
+        width: 100%;
+    }
+    .slds-chart-wrap button{
+        margin-left: 5px;
+    }
 </style>
 
 <script setup>
@@ -488,4 +572,5 @@
   import { TransitionRoot } from '@headlessui/vue'
 
   const isShowing = ref(false)
+  const isShowing2 = ref(false)
 </script>

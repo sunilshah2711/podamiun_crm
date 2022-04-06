@@ -5,12 +5,13 @@ import router from './router'
 
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { library } from "@fortawesome/fontawesome-svg-core"
-import { faFileLines, faXmark } from "@fortawesome/free-solid-svg-icons"
+import { faFileLines, faXmark, faCloudArrowUp } from "@fortawesome/free-solid-svg-icons"
 import { faGoogle } from "@fortawesome/free-brands-svg-icons"
 
 import './assets/css/global.css'
+import './assets/css/dropzone.css'
 
 const app = createApp(App)
-library.add(faGoogle, faFileLines, faXmark)
+library.add(faGoogle, faFileLines, faXmark, faCloudArrowUp)
 app.use(router)
 app.component("font-awesome-icon", FontAwesomeIcon).mount('#app')

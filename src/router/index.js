@@ -7,6 +7,8 @@ import Automations from '../pages/Automations.vue'
 import Sender from '../pages/Sender.vue'
 import Admin from '../pages/Admin.vue'
 import ImageLibrary from '../pages/ImageLibrary.vue'
+import Support from '../pages/Support.vue'
+import EmailCampaigns from '../pages/EmailCampaigns.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -48,8 +50,18 @@ const router = createRouter({
     },
     {
       path: '/image-library',
-      name: 'ImageLibrary',
+      name: 'image-library',
       component: ImageLibrary
+    },
+    {
+      path: '/support',
+      name: 'support',
+      component: Support
+    },
+    {
+      path: '/email-campaigns',
+      name: 'email-campaigns',
+      component: EmailCampaigns
     }
   ]
 })
