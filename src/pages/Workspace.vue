@@ -1,7 +1,7 @@
 <script setup>
-    import Workspace from '@/components/Workspace.vue';
+import Workspace from "@/components/Workspace.vue";
 </script>
 
 <template>
-  <Workspace/>
+  <Workspace />
 </template>

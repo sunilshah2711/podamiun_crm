@@ -1,11 +1,11 @@
 <script setup>
-    import Navbar from '@/components/Navbar.vue';
-    import ImageLibrary from '../components/ImageLibrary.vue';
+import Navbar from "@/components/Navbar.vue";
+import ImageLibrary from "../components/ImageLibrary.vue";
 </script>
 
 <template>
-  <Navbar/>
+  <Navbar />
   <div class="page-wrap">
-      <ImageLibrary/>
+    <ImageLibrary />
   </div>
 </template>
