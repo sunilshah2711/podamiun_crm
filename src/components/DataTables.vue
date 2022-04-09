@@ -1,13 +1,12 @@
 <template>
   <div class="right-panel">
-    <table id="contacts" class="dataTable">
+    <table id="datatable">
       <thead>
         <tr>
           <th>ID</th>
           <th>Name</th>
-          <th>Status</th>
-          <th>Date</th>
-          <th>Action</th>
+          <th>Email</th>
+          <th>Job Title</th>
         </tr>
       </thead>
       <tbody>
@@ -23,33 +22,20 @@
 </template>
 
 <script>
-import "jquery/dist/jquery.min.js";
-//Datatable Modules
-import "datatables.net-dt/js/dataTables.dataTables";
-import "datatables.net-dt/css/jquery.dataTables.min.css";
-import "datatables.net-buttons/js/dataTables.buttons.js";
-import "datatables.net-buttons/js/buttons.colVis.js";
-import "datatables.net-buttons/js/buttons.flash.js";
-import "datatables.net-buttons/js/buttons.html5.js";
-import "datatables.net-buttons/js/buttons.print.js";
-import $ from "jquery";
-import axios from "axios"; //for api calling
+import axios from "axios";
 export default {
   mounted() {
-    //Web api calling for dynamic data and you can also use into your demo project
+    //API Call
     axios.get("http://localhost:3001/users").then((res) => {
       this.users = res.data;
-      $(document).ready(function () {
-        $.noConflict();
-        setTimeout(function () {
-          $("#example").DataTable({
-            pagingType: "full_numbers",
-            pageLength: 5,
-            processing: true,
-            dom: "Bfrtip",
-            buttons: ["copy", "csv", "print"],
-          });
-        }, 1000);
+      setTimeout(() => {
+        $("#datatable").DataTable({
+          lengthMenu: [
+            [5, 10, 25, 50, -1],
+            [5, 10, 25, 50, "All"],
+          ],
+          pageLength: 5,
+        });
       });
     });
   },

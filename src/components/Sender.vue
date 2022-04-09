@@ -506,32 +506,3 @@
     </table>
   </div>
 </template>
-
-<style>
-.right-panel {
-  width: 100%;
-  height: 100%;
-  background: #ffffff;
-  border-radius: 5px;
-  padding: 5px;
-  margin: 12px;
-  -webkit-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.02);
-  -moz-box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.02);
-  box-shadow: 0px 0px 10px 2px rgba(0, 0, 0, 0.02);
-}
-.data-tabel-search {
-  display: flex;
-  align-items: center;
-  margin-bottom: 5px;
-}
-.data-tabel-search .slds-form-element {
-  width: 20%;
-}
-.data-tabel-search .slds-form-element {
-  display: flex;
-  align-items: center;
-}
-.data-tabel-search h2 {
-  margin-left: 10px;
-}
-</style>
