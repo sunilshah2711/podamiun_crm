@@ -1,0 +1,20 @@
+html {
+  height: 100%;
+}
+body {
+  background: #fff;
+  height: 100%;
+}
+
+/* slds css start */
+.slds-resizable__divider {
+  z-index: 1;
+}
+/* slds css end */
+
+.page-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+}
